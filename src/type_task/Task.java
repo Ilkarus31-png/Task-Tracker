@@ -1,16 +1,15 @@
 package Task_Tracker.src.type_task;
 
 public class Task {
-    private String name;
-    private String sipattama;
-    private final int id;
-    private static int count_obj = 1;
-    private Status statusTask = Status.NEW;
+    protected String name;
+    protected String sipattama;
+    protected int id;
+    protected Status statusTask = Status.NEW;
 
-    public Task(String name, String sipattama) {
+    public Task(String name, String sipattama, int id) {
         this.name = name;
         this.sipattama = sipattama;
-        this.id = count_obj++;
+        this.id = id;
     }
 
     
@@ -38,5 +37,14 @@ public class Task {
 
     public int getId() {
         return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Задача: %s, id: %d, описание: %s, статус: %s",
+                            getName(), getId(), getSipattama(), getStatus());
     }
 }
